@@ -5,14 +5,14 @@ public class Person {
     private String firstName;
     private String lastName;
     private Integer age;
-    private String gender;
+    private Gender gender;
     private String phoneNumber;
 
     public Person() {
         
     }
 
-    public Person(Long id, String firstName, String lastName, Integer age, String gender, String phoneNumber) {
+    public Person(Long id, String firstName, String lastName, Integer age, Gender gender, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -44,10 +44,10 @@ public class Person {
     public void setAge(Integer age) {
         this.age = age;
     }
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
     public String getPhoneNumber() {

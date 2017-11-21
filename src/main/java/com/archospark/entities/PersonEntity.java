@@ -1,10 +1,14 @@
 package com.archospark.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.archospark.model.Gender;
 
 @Entity
 @Table(name = "person")
@@ -15,14 +19,13 @@ public class PersonEntity implements BaseEntity<Long> {
     private String firstName;
     private String lastName;
     private Integer age;
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     private String phoneNumber;
 
-    public PersonEntity() {
+    public PersonEntity() {}
 
-    }
-
-    public PersonEntity(String firstName, String lastName, Integer age, String gender, String phoneNumber) {
+    public PersonEntity(String firstName, String lastName, Integer age, Gender gender, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -53,10 +56,10 @@ public class PersonEntity implements BaseEntity<Long> {
     public void setAge(Integer age) {
         this.age = age;
     }
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
     public String getPhoneNumber() {

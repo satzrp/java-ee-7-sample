@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import com.archospark.entities.PersonEntity;
 import com.archospark.mapper.PersonMapper;
+import com.archospark.model.Gender;
 import com.archospark.model.Person;
 import com.archospark.repository.PersonRepository;
 
@@ -24,8 +25,8 @@ public class PersonServiceImpl implements PersonService {
     @PostConstruct
     public void init() {
         List<PersonEntity> personEntityList = Arrays.asList(
-            new PersonEntity("Sathish", "Kumar", 28, "MALE", "1234567890"),
-            new PersonEntity("John", "Doe", 30, "MALE", "9077878789")
+            new PersonEntity("Sathish", "Kumar", 28, Gender.MALE, "1234567890"),
+            new PersonEntity("John", "Doe", 30, Gender.MALE, "9077878789")
         );
         personEntityList.stream().forEach(personEntity -> personRepository.save(personEntity));
         System.out.println("Data Loaded");
@@ -39,5 +40,11 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person getPerson(Long id) {
         return personMapper.personEntityToPerson(personRepository.findById(id));
+    }
+
+    @Override
+    public void savePerson(Person person) {
+        PersonEntity personEntity = personMapper.personToPersonEntity(person);
+        personRepository.save(personEntity);
     }
 }
