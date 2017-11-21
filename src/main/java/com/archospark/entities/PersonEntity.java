@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-public class PersonEntity extends BaseEntity<Long> {
+public class PersonEntity implements BaseEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,8 +22,7 @@ public class PersonEntity extends BaseEntity<Long> {
 
     }
 
-    public PersonEntity(Long id, String firstName, String lastName, Integer age, String gender, String phoneNumber) {
-        this.id = id;
+    public PersonEntity(String firstName, String lastName, Integer age, String gender, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

@@ -7,10 +7,7 @@ import com.archospark.entities.PersonEntity;
 import com.archospark.model.Person;
 
 public class PersonMapper {
-    private PersonMapper() {
-
-    }
-    public static PersonEntity personToPersonEntity(Person person) {
+    public PersonEntity personToPersonEntity(Person person) {
         PersonEntity personEntity = new PersonEntity();
         personEntity.setFirstName(person.getFirstName());
         personEntity.setLastName(person.getLastName());
@@ -19,8 +16,9 @@ public class PersonMapper {
         personEntity.setGender(person.getGender());
         return personEntity;
     }
-    public static Person personEntityToPerson(PersonEntity personEntity) {
+    public Person personEntityToPerson(PersonEntity personEntity) {
         Person person = new Person();
+        person.setId(personEntity.getId());
         person.setFirstName(personEntity.getFirstName());
         person.setLastName(personEntity.getLastName());
         person.setAge(personEntity.getAge());
@@ -28,10 +26,10 @@ public class PersonMapper {
         person.setGender(personEntity.getGender());
         return person;
     }
-    public static List<PersonEntity> personListToPersonEntities(List<Person> personList) {
-        return personList.stream().map(PersonMapper::personToPersonEntity).collect(Collectors.toList());
+    public List<PersonEntity> personListToPersonEntities(List<Person> personList) {
+        return personList.stream().map(this::personToPersonEntity).collect(Collectors.toList());
     }
-    public static List<Person> personEntitiesToPersonList(List<PersonEntity> personEntities) {
-        return personEntities.stream().map(PersonMapper::personEntityToPerson).collect(Collectors.toList());
+    public List<Person> personEntitiesToPersonList(List<PersonEntity> personEntities) {
+        return personEntities.stream().map(this::personEntityToPerson).collect(Collectors.toList());
     }
 }
