@@ -15,11 +15,17 @@ public class LoggingInterceptor {
 
     @AroundInvoke
     public Object log(InvocationContext ctx) throws Exception {
-        logger.debug("Inside class {}, method {}", ctx.getTarget(), ctx.getMethod().getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Inside method {} in class {}", ctx.getMethod().getName(),
+                    ctx.getTarget().getClass().getName());
+        }
         try {
             return ctx.proceed();
         } finally {
-            logger.debug("Exiting class {}, method {}", ctx.getTarget(), ctx.getMethod().getName());
+            if (logger.isDebugEnabled()) {
+                logger.debug("Exiting method {} in class {}", ctx.getMethod().getName(),
+                        ctx.getTarget().getClass().getName());
+            }
         }
     }
 }

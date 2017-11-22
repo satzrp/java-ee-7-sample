@@ -3,6 +3,7 @@ package com.archospark.resource;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,10 +12,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import com.archospark.infra.PerformanceLoggingInterceptor;
 import com.archospark.model.Person;
 import com.archospark.service.PersonService;
 
 @Path("/person")
+@Interceptors(value = {PerformanceLoggingInterceptor.class})
 public class PersonResource {
 
     @Inject

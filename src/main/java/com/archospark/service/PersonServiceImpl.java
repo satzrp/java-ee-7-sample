@@ -15,7 +15,7 @@ import com.archospark.model.Person;
 import com.archospark.repository.PersonRepository;
 
 @Stateless
-@Interceptors(value = LoggingInterceptor.class)
+@Interceptors(value = {LoggingInterceptor.class})
 public class PersonServiceImpl implements PersonService {
 
     @Inject
@@ -31,7 +31,6 @@ public class PersonServiceImpl implements PersonService {
             new PersonEntity("John", "Doe", 30, Gender.MALE, "9077878789")
         );
         personEntityList.stream().forEach(personEntity -> personRepository.save(personEntity));
-        System.out.println("Data Loaded");
     }
 
     @Override
