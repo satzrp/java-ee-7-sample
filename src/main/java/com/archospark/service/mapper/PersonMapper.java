@@ -1,4 +1,4 @@
-package com.archospark.mapper;
+package com.archospark.service.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;

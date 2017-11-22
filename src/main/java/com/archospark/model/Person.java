@@ -1,11 +1,18 @@
 package com.archospark.model;
 
+import javax.validation.constraints.NotNull;
+
 public class Person {
     private Long id;
+    @NotNull(message = "First Name cannot be null")
     private String firstName;
+    @NotNull(message = "Last Name cannot be null")
     private String lastName;
+    @NotNull(message = "Age cannot be null")
     private Integer age;
+    @NotNull(message = "Gender cannot be null")
     private Gender gender;
+    @NotNull(message = "Phone Number cannot be null")
     private String phoneNumber;
 
     public Person() {

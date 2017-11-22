@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -15,6 +16,8 @@ import javax.ws.rs.core.Response;
 
 import com.archospark.infra.PerformanceLoggingInterceptor;
 import com.archospark.model.Person;
+import com.archospark.model.ServiceRequest;
+import com.archospark.model.ServiceResponse;
 import com.archospark.service.PersonService;
 
 @Path("/person")
@@ -35,21 +38,22 @@ public class PersonResource {
     @Produces(value = MediaType.APPLICATION_JSON)
     public Response getAllPerson() {
         List<Person> personList = personService.getAllPerson();
-        return Response.ok(personList).build();
+        return Response.ok(new ServiceResponse<List<Person>>(0, personList)).build();
     }
 
     @GET
     @Path("/{id}")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Response getPerson(@PathParam("id") final Long id) {
-        return Response.ok(personService.getPerson(id)).build();
+        Person person = personService.getPerson(id);
+        return Response.ok(new ServiceResponse<Person>(0, person)).build();
     }
 
     @POST
     @Path("/save")
     @Consumes(value = MediaType.APPLICATION_JSON)
-    public Response savePerson(Person person) {
-        personService.savePerson(person);
+    public Response savePerson(@Valid ServiceRequest<Person> request) {
+        personService.savePerson(request.getPayload());
         return Response.ok().build();
     }
 }
