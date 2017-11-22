@@ -6,14 +6,16 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-
+import javax.interceptor.Interceptors;
 import com.archospark.entities.PersonEntity;
+import com.archospark.infra.LoggingInterceptor;
 import com.archospark.mapper.PersonMapper;
 import com.archospark.model.Gender;
 import com.archospark.model.Person;
 import com.archospark.repository.PersonRepository;
 
 @Stateless
+@Interceptors(value = LoggingInterceptor.class)
 public class PersonServiceImpl implements PersonService {
 
     @Inject
