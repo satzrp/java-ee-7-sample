@@ -3,9 +3,9 @@ package com.archospark.model;
 import javax.validation.constraints.NotNull;
 
 public class ServiceInfo {
-    @NotNull
+    @NotNull(message = "{not.null.username}")
     private String userName;
-    @NotNull
+    @NotNull(message = "{not.null.language.code}")
     private String languageCode;
     public ServiceInfo() {}
     public String getUserName() {

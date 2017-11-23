@@ -25,7 +25,7 @@ public class PerformanceLoggingInterceptor {
             Instant end = Instant.now();
             long elapsedTime = Duration.between(start, end).toMillis();
             logger.info("Elapsed Time of {} method in {} - {}ms ", ctx.getMethod().getName(),
-                    ctx.getTarget().getClass().getName(), elapsedTime);
+                    ctx.getMethod().getDeclaringClass().getName(), elapsedTime);
         }
     }
 }

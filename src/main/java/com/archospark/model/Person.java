@@ -4,15 +4,15 @@ import javax.validation.constraints.NotNull;
 
 public class Person {
     private Long id;
-    @NotNull(message = "First Name cannot be null")
+    @NotNull(message = "{not.null.first.name}")
     private String firstName;
-    @NotNull(message = "Last Name cannot be null")
+    @NotNull(message = "{not.null.last.name}")
     private String lastName;
-    @NotNull(message = "Age cannot be null")
+    @NotNull(message = "{not.null.age}")
     private Integer age;
-    @NotNull(message = "Gender cannot be null")
+    @NotNull(message = "{not.null.gender}")
     private Gender gender;
-    @NotNull(message = "Phone Number cannot be null")
+    @NotNull(message = "{not.null.phone.number}")
     private String phoneNumber;
 
     public Person() {
