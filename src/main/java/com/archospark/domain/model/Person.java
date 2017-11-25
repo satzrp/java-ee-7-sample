@@ -1,25 +1,31 @@
-package com.archospark.model;
+package com.archospark.domain.model;
 
 import javax.validation.constraints.NotNull;
 
+import com.archospark.domain.vo.Age;
+import com.archospark.domain.vo.Gender;
+import com.archospark.domain.vo.Name;
+import com.archospark.domain.vo.PersonId;
+import com.archospark.domain.vo.PhoneNumber;
+
 public class Person {
-    private Long id;
+    private PersonId id;
     @NotNull(message = "{not.null.first.name}")
-    private String firstName;
+    private Name firstName;
     @NotNull(message = "{not.null.last.name}")
-    private String lastName;
+    private Name lastName;
     @NotNull(message = "{not.null.age}")
-    private Integer age;
+    private Age age;
     @NotNull(message = "{not.null.gender}")
     private Gender gender;
     @NotNull(message = "{not.null.phone.number}")
-    private String phoneNumber;
+    private PhoneNumber phoneNumber;
 
     public Person() {
         
     }
 
-    public Person(Long id, String firstName, String lastName, Integer age, Gender gender, String phoneNumber) {
+    public Person(PersonId id, Name firstName, Name lastName, Age age, Gender gender, PhoneNumber phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,28 +33,28 @@ public class Person {
         this.gender = gender;
         this.phoneNumber = phoneNumber;
     }
-    public Long getId() {
+    public PersonId getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(PersonId id) {
         this.id = id;
     }
-    public String getFirstName() {
+    public Name getFirstName() {
         return firstName;
     }
-    public void setFirstName(String firstName) {
+    public void setFirstName(Name firstName) {
         this.firstName = firstName;
     }
-    public String getLastName() {
+    public Name getLastName() {
         return lastName;
     }
-    public void setLastName(String lastName) {
+    public void setLastName(Name lastName) {
         this.lastName = lastName;
     }
-    public Integer getAge() {
+    public Age getAge() {
         return age;
     }
-    public void setAge(Integer age) {
+    public void setAge(Age age) {
         this.age = age;
     }
     public Gender getGender() {
@@ -57,10 +63,10 @@ public class Person {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
-    public String getPhoneNumber() {
+    public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

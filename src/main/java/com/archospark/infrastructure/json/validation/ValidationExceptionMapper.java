@@ -1,5 +1,6 @@
-package com.archospark.infra;
+package com.archospark.infrastructure.json.validation;
 
+import com.archospark.interfaces.common.ServiceResponse;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -8,8 +9,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
-
-import com.archospark.model.ServiceResponse;
 
 @Provider
 public class ValidationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {

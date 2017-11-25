@@ -1,4 +1,4 @@
-package com.archospark.model;
+package com.archospark.domain.vo;
 
 public enum Gender {
     MALE,

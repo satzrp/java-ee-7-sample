@@ -1,4 +1,4 @@
-package com.archospark.service;
+package com.archospark.application;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,12 +7,13 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
-import com.archospark.entities.PersonEntity;
-import com.archospark.infra.LoggingInterceptor;
-import com.archospark.model.Gender;
-import com.archospark.model.Person;
-import com.archospark.repository.PersonRepository;
-import com.archospark.service.mapper.PersonMapper;
+
+import com.archospark.application.mapper.PersonMapper;
+import com.archospark.domain.entities.PersonEntity;
+import com.archospark.domain.model.Person;
+import com.archospark.domain.repository.PersonRepository;
+import com.archospark.domain.vo.Gender;
+import com.archospark.infrastructure.logging.LoggingInterceptor;
 
 @Stateless
 @Interceptors(value = {LoggingInterceptor.class})

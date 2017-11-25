@@ -1,4 +1,4 @@
-package com.archospark.resource;
+package com.archospark.interfaces;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.archospark.infra.PerformanceLoggingInterceptor;
-import com.archospark.model.Person;
-import com.archospark.model.ServiceRequest;
-import com.archospark.model.ServiceResponse;
-import com.archospark.service.PersonService;
+import com.archospark.application.PersonService;
+import com.archospark.domain.model.Person;
+import com.archospark.infrastructure.logging.PerformanceLoggingInterceptor;
+import com.archospark.interfaces.common.ServiceRequest;
+import com.archospark.interfaces.common.ServiceResponse;
 
 @Path("/person")
 @Interceptors(value = {PerformanceLoggingInterceptor.class})

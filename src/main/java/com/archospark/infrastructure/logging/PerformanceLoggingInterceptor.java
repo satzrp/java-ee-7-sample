@@ -1,4 +1,4 @@
-package com.archospark.infra;
+package com.archospark.infrastructure.logging;
 
 import java.time.Duration;
 import java.time.Instant;

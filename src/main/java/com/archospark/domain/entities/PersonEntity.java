@@ -1,5 +1,6 @@
-package com.archospark.entities;
+package com.archospark.domain.entities;
 
+import com.archospark.domain.vo.Gender;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -7,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import com.archospark.model.Gender;
 
 @Entity
 @Table(name = "person")

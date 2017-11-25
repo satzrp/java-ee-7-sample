@@ -1,4 +1,4 @@
-package com.archospark.infra;
+package com.archospark.infrastructure.logging;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;

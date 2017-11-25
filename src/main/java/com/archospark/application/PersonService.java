@@ -1,8 +1,8 @@
-package com.archospark.service;
+package com.archospark.application;
 
 import java.util.List;
 
-import com.archospark.model.Person;
+import com.archospark.domain.model.Person;
 
 public interface PersonService {
     List<Person> getAllPerson();

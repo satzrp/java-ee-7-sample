@@ -1,4 +1,4 @@
-package com.archospark.repository;
+package com.archospark.infrastructure.jpa.repository;
 
 import java.util.List;
 
