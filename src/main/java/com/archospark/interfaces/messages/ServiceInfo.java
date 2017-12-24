@@ -1,4 +1,4 @@
-package com.archospark.interfaces.common;
+package com.archospark.interfaces.messages;
 
 import javax.validation.constraints.NotNull;
 

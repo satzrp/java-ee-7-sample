@@ -1,4 +1,4 @@
-package com.archospark.interfaces.common;
+package com.archospark.interfaces.messages;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -2,22 +2,26 @@ package com.archospark.domain.vo;
 
 import java.io.Serializable;
 
-public class PersonId implements Serializable {
+public final class PersonId implements Serializable {
     public static final long serialVersionUID = 1L;
 
-    private final String value;
+    private final Long value;
 
-    private PersonId(String value) {
+    private PersonId(Long value) {
         this.value = value;
     }
 
-    public static PersonId of(String value) {
+    public static PersonId of(Long value) {
         /* validation to be done here */
         return new PersonId(value);
     }
 
+    public Long toValue() {
+        return value;
+    }
+
     @Override
     public String toString() {
-        return value;
+        return String.valueOf(value);
     }
 }

@@ -2,7 +2,7 @@ package com.archospark.domain.vo;
 
 import java.io.Serializable;
 
-public class PhoneNumber implements Serializable {
+public final class PhoneNumber implements Serializable {
     public static final long serialVersionUID = 1L;
 
     private final String value;

@@ -17,8 +17,8 @@ import javax.ws.rs.core.Response;
 import com.archospark.application.PersonService;
 import com.archospark.domain.model.Person;
 import com.archospark.infrastructure.logging.PerformanceLoggingInterceptor;
-import com.archospark.interfaces.common.ServiceRequest;
-import com.archospark.interfaces.common.ServiceResponse;
+import com.archospark.interfaces.messages.ServiceRequest;
+import com.archospark.interfaces.messages.ServiceResponse;
 
 @Path("/person")
 @Interceptors(value = {PerformanceLoggingInterceptor.class})
@@ -34,7 +34,7 @@ public class PersonResource {
     }
 
     @GET
-    @Path("/all")
+    @Path("/")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Response getAllPerson() {
         List<Person> personList = personService.getAllPerson();
@@ -50,7 +50,7 @@ public class PersonResource {
     }
 
     @POST
-    @Path("/save")
+    @Path("/")
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response savePerson(@Valid ServiceRequest<Person> request) {
         personService.savePerson(request.getPayload());

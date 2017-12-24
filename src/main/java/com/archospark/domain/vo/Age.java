@@ -2,7 +2,7 @@ package com.archospark.domain.vo;
 
 import java.io.Serializable;
 
-public class Age implements Serializable {
+public final class Age implements Serializable {
     public static final long serialVersionUID = 1L;
 
     private final int value;
@@ -14,6 +14,10 @@ public class Age implements Serializable {
     public static Age of(int value) {
         /* validation to be done here */
         return new Age(value);
+    }
+
+    public int toValue() {
+        return value;
     }
 
     @Override

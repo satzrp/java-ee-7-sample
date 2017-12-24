@@ -1,58 +1,63 @@
 package com.archospark.domain.entities;
 
+import com.archospark.domain.vo.Age;
 import com.archospark.domain.vo.Gender;
+import com.archospark.domain.vo.Name;
+import com.archospark.domain.vo.PersonId;
+import com.archospark.domain.vo.PhoneNumber;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-public class PersonEntity implements BaseEntity<Long> {
+public class PersonEntity implements BaseEntity<PersonId> {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private Integer age;
+    private PersonId id;
+    private Name firstName;
+    private Name lastName;
+    private Age age;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    private String phoneNumber;
+    private PhoneNumber phoneNumber;
 
     public PersonEntity() {}
 
-    public PersonEntity(String firstName, String lastName, Integer age, Gender gender, String phoneNumber) {
+    public PersonEntity(PersonId id, Name firstName, Name lastName, Age age, Gender gender, PhoneNumber phoneNumber) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
     }
-    public Long getId() {
+    @Override
+    public PersonId getId() {
         return id;
     }
-    public void setId(Long id) {
+    @Override
+    public void setId(PersonId id) {
         this.id = id;
     }
-    public String getFirstName() {
+    public Name getFirstName() {
         return firstName;
     }
-    public void setFirstName(String firstName) {
+    public void setFirstName(Name firstName) {
         this.firstName = firstName;
     }
-    public String getLastName() {
+    public Name getLastName() {
         return lastName;
     }
-    public void setLastName(String lastName) {
+    public void setLastName(Name lastName) {
         this.lastName = lastName;
     }
-    public Integer getAge() {
+    public Age getAge() {
         return age;
     }
-    public void setAge(Integer age) {
+    public void setAge(Age age) {
         this.age = age;
     }
     public Gender getGender() {
@@ -61,10 +66,10 @@ public class PersonEntity implements BaseEntity<Long> {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
-    public String getPhoneNumber() {
+    public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

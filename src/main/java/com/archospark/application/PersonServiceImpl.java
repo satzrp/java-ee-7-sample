@@ -12,7 +12,11 @@ import com.archospark.application.mapper.PersonMapper;
 import com.archospark.domain.entities.PersonEntity;
 import com.archospark.domain.model.Person;
 import com.archospark.domain.repository.PersonRepository;
+import com.archospark.domain.vo.Age;
 import com.archospark.domain.vo.Gender;
+import com.archospark.domain.vo.Name;
+import com.archospark.domain.vo.PersonId;
+import com.archospark.domain.vo.PhoneNumber;
 import com.archospark.infrastructure.logging.LoggingInterceptor;
 
 @Stateless
@@ -28,15 +32,17 @@ public class PersonServiceImpl implements PersonService {
     @PostConstruct
     public void init() {
         List<PersonEntity> personEntityList = Arrays.asList(
-            new PersonEntity("Sathish", "Kumar", 28, Gender.MALE, "1234567890"),
-            new PersonEntity("John", "Doe", 30, Gender.MALE, "9077878789")
+            new PersonEntity(PersonId.of(1L), Name.of("Sathish"), Name.of("Kumar"), Age.of(28), Gender.MALE, PhoneNumber.of("1234567890")),
+            new PersonEntity(PersonId.of(2L), Name.of("John"), Name.of("Doe"), Age.of(30), Gender.MALE, PhoneNumber.of("9077878789"))
         );
         personEntityList.stream().forEach(personEntity -> personRepository.save(personEntity));
+        System.out.println("Added to database ..");
     }
 
     @Override
     public List<Person> getAllPerson() {
-        return personMapper.personEntitiesToPersonList(personRepository.findAll());
+        List<PersonEntity> persons = personRepository.findAll();
+        return personMapper.personEntitiesToPersonList(persons);
     }
 
     @Override

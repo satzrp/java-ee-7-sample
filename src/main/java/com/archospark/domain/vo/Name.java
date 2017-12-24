@@ -2,7 +2,7 @@ package com.archospark.domain.vo;
 
 import java.io.Serializable;
 
-public class Name implements Serializable {
+public final class Name implements Serializable {
     public static final long serialVersionUID = 1L;
 
     private final String value;
