@@ -5,9 +5,8 @@ import java.util.Set;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-
-import com.archospark.infrastructure.json.validation.ValidationExceptionMapper;
-import com.archospark.interfaces.PersonResource;
+import com.archospark.common.infrastructure.json.validation.ValidationExceptionMapper;
+import com.archospark.person.interfaces.PersonResource;
 
 @ApplicationPath("/api")
 public class SampleApplication extends Application {
