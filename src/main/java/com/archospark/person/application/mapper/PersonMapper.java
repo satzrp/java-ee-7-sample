@@ -7,11 +7,13 @@ import com.archospark.person.domain.entities.PersonEntity;
 import com.archospark.person.domain.model.Person;
 import com.archospark.person.domain.vo.Age;
 import com.archospark.person.domain.vo.Name;
+import com.archospark.person.domain.vo.PersonId;
 import com.archospark.person.domain.vo.PhoneNumber;
 
 public class PersonMapper {
     public PersonEntity personToPersonEntity(Person person) {
         PersonEntity personEntity = new PersonEntity();
+        personEntity.setId(PersonId.of(person.getId()));
         personEntity.setFirstName(Name.of(person.getFirstName()));
         personEntity.setLastName(Name.of(person.getLastName()));
         personEntity.setAge(Age.of(person.getAge()));

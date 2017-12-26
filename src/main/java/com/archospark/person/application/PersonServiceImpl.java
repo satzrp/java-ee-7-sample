@@ -46,7 +46,8 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person getPerson(Long id) {
-        return personMapper.personEntityToPerson(personRepository.findById(id));
+        PersonId personId = PersonId.of(id);
+        return personMapper.personEntityToPerson(personRepository.findById(personId));
     }
 
     @Override
